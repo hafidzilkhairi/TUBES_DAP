@@ -1,0 +1,89 @@
+program KulinerEmerald;
+uses crt;
+type Restoran = record
+		nama: string;
+		toilet,mushola,kupon,tipe: char;
+		id: integer;
+		end;
+		
+		tabel = array of Restoran;
+		
+var
+	A: tabel;
+
+	procedure Add();
+	var
+		N:integer;
+		pil: char;
+	begin
+		N:=length(A);
+		setLength(A,N+1);
+		clrscr;
+		writeln('Input Data Restoran');
+		writeln('==============================');
+		write('Nama Restoran: '); readln(A[N].nama);
+		repeat
+			writeln('Tipe 1 = All, Tipe 2 = Vegetarian, Tipe 3 = Dairy');
+			write('Tipe Restoran: '); readln(A[N].tipe);
+		until (A[N].tipe='1') or (A[N].tipe='2') or (A[N].tipe='3');
+		
+		writeln('Fasilitas:');
+		writeln('Toilet(y/n): '); readln(A[N].toilet);
+		while (A[N].toilet<>'y') or (A[N].toilet<>'n') do
+			begin
+				writeln('Toilet(y/n): '); readln(A[N].toilet);
+			end;
+			
+		writeln('Mushola(y/n): '); readln(A[N].mushola);
+		while (A[N].mushola<>'y') or (A[N].mushola<>'n') do
+			begin
+				writeln('Mushola(y/n): '); readln(A[N].mushola);
+			end;
+			
+		writeln('Menerima kupon(y/n): '); readln(A[N].kupon);
+		while (A[N].kupon<>'y') or (A[N].kupon<>'n') do
+			begin
+				writeln('Menerima kupon(y/n): '); readln(A[N].kupon);
+			end;
+			
+		A[N].id:=N;
+		writeln('Data berhasil ditambahkan');readln;
+       end;
+
+	procedure homeOption(opt:integer);
+	begin
+		case opt of
+			0: Add();
+			{1:
+			2:
+			3:}
+		end;
+	end;
+
+	procedure Menu();
+		var
+		        opt: integer;
+		begin
+			{repeat}
+			clrscr;
+				writeln('===============================================================');
+							writeln('|                                                              |');
+							writeln('|                       SELAMAT DATANG                         |');
+							writeln('|                             DI                               |');
+							writeln('|                       KULINER EMERALD                        |');
+							writeln('|                                                              |');
+				writeln('===============================================================');
+				writeln('0. Tambah Restoran');
+				writeln('1. Edit Restoran');
+				writeln('2. Hapus Restoran');
+				writeln('3. Daftar Restoran');
+				write('Opsi: ')
+				readln(opt);
+			//until (opt=1) or (opt=2) or (opt=3) or (opt=0);
+			homeOption(opt);
+		end;
+
+begin
+	 Menu();
+
+end.
