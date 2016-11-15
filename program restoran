@@ -77,7 +77,7 @@ var
 				writeln('1. Edit Restoran');
 				writeln('2. Hapus Restoran');
 				writeln('3. Daftar Restoran');
-				write('Opsi: ')
+				write('Opsi: ');
 				readln(opt);
 			//until (opt=1) or (opt=2) or (opt=3) or (opt=0);
 			homeOption(opt);
